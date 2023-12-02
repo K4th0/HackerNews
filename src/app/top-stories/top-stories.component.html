@@ -1,3 +1,12 @@
-<div *ngFor="let storyId of data">
-  <app-story-item [storyId]="storyId"></app-story-item>
+<div *ngFor="let story of filteredStories">
+  <div>
+    <p>{{ story.id }}</p>
+    <p>{{ story.type }}</p>
+    <p>{{ story.by }}</p>
+    <p>{{ story.time }}</p>
+    <p>{{ story.kids }}</p>
+    <p>{{ story.url }}</p>
+    <p>{{ story.score }}</p>
+    <p>{{ story.title }}</p>
+  </div>
 </div>

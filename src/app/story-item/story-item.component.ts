@@ -22,7 +22,7 @@ export class StoryItemComponent {
 
   @Input() storyId: number = 0;
 
-  data: Model = {
+  storyItem: Model = {
     by: '',
     descendants: 0,
     id: 0,
@@ -42,8 +42,8 @@ export class StoryItemComponent {
 
   getStory(){
     this.storyItemService.getTopStoryById(this.storyId).subscribe((data) => {
-      this.data = { ...this.data, ...data } as Model;
-      console.log(this.data)
+      this.storyItem = { ...this.storyItem, ...data } as Model;
+      //Objeto con cada storyItem
     });
   }
 
