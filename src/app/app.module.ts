@@ -5,14 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopStoriesComponent } from './top-stories/top-stories.component';
 import { StoryItemComponent } from './story-item/story-item.component';
-import { CommentsComponent } from './comments/comments.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopStoriesComponent,
     StoryItemComponent,
-    CommentsComponent,
+
   ],
   imports: [
     BrowserModule,

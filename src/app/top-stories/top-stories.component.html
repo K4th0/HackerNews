@@ -10,3 +10,16 @@
     <p>{{ story.title }}</p>
   </div>
 </div>
+
+<div>
+  <button (click)="changePage(-1)" [disabled]="currentPage === 1">
+    Anterior
+  </button>
+  <span>Página {{ currentPage }}</span>
+  <button
+    (click)="changePage(1)"
+    [disabled]="currentPage * pageSize >= topStoriesIds.length"
+  >
+    Siguiente
+  </button>
+</div>

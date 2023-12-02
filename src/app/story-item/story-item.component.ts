@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { StoryItemService } from '../Services/story-item.service';
 
-interface Model {
+interface StoryModel {
   by: string;
   descendants: number;
   id: number;
@@ -18,11 +18,12 @@ interface Model {
   templateUrl: './story-item.component.html',
   styleUrl: './story-item.component.css'
 })
+
 export class StoryItemComponent {
 
   @Input() storyId: number = 0;
 
-  storyItem: Model = {
+  storyItem: StoryModel = {
     by: '',
     descendants: 0,
     id: 0,
@@ -42,7 +43,7 @@ export class StoryItemComponent {
 
   getStory(){
     this.storyItemService.getTopStoryById(this.storyId).subscribe((data) => {
-      this.storyItem = { ...this.storyItem, ...data } as Model;
+      this.storyItem = { ...this.storyItem, ...data } as StoryModel;
       //Objeto con cada storyItem
     });
   }

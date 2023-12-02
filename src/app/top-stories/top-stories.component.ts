@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { TopStoriesService } from '../Services/top-stories.service';
 import { StoryItemService } from '../Services/story-item.service';
 
-interface StoryModel {
+interface TopStoryModel {
   by: string;
   descendants: number;
   id: number;
@@ -24,6 +24,8 @@ export class TopStoriesComponent {
 
   topStoriesIds: any[] = [];
   filteredStories: any[] = [];
+  pageSize: number = 50;
+  currentPage: number = 1;
 
   constructor(private topStoriesService: TopStoriesService, private storyItemService: StoryItemService) {}
 
@@ -41,13 +43,22 @@ export class TopStoriesComponent {
 
   filterStories() {
     this.filteredStories = [];
-
-    for (const storyId of this.topStoriesIds) {
+  
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+  
+    for (let i = startIndex; i < endIndex && i < this.topStoriesIds.length; i++) {
+      const storyId = this.topStoriesIds[i];
+      
       this.storyItemService.getTopStoryById(storyId).subscribe((data) => {
-        this.filteredStories.push({ ...data } as StoryModel);
-        //StoryItem filtrado, es decir, solo se muestran las topStories
+        this.filteredStories.push({ ...data } as TopStoryModel);
       });
     }
+  }
+
+  changePage(offset: number) {
+    this.currentPage += offset;
+    this.filterStories();
   }
 
 }
