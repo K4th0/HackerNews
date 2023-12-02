@@ -17,7 +17,7 @@ interface TopStoryModel {
 @Component({
   selector: 'app-top-stories',
   templateUrl: './top-stories.component.html',
-  styleUrl: './top-stories.component.css'
+  styleUrl: './top-stories.component.css',
 })
 
 export class TopStoriesComponent {
