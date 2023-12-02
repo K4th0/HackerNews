@@ -4,7 +4,7 @@ import { TopStoriesComponent } from './top-stories/top-stories.component';
 import { StoryItemComponent } from './story-item/story-item.component';
 
 const routes: Routes = [
-  {path: "", component: StoryItemComponent}
+  {path: "", component: TopStoriesComponent}
 ];
 
 @NgModule({

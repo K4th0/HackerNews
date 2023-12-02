@@ -42,7 +42,7 @@ export class StoryItemComponent {
 
   getStory(){
     this.storyItemService.getTopStoryById(this.storyId).subscribe((data) => {
-      this.data = data as Model;
+      this.data = { ...this.data, ...data } as Model;
       console.log(this.data)
     });
   }

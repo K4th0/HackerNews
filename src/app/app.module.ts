@@ -10,7 +10,7 @@ import { StoryItemComponent } from './story-item/story-item.component';
   declarations: [
     AppComponent,
     TopStoriesComponent,
-    StoryItemComponent
+    StoryItemComponent,
   ],
   imports: [
     BrowserModule,

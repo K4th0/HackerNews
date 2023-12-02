@@ -24,4 +24,8 @@ export class TopStoriesComponent {
     })
   }
 
+  getData(): any[] {
+    return this.data;
+  }
+
 }

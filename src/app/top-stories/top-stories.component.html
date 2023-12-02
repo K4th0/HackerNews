@@ -1,1 +1,3 @@
-<p>top-stories works!</p>
+<div *ngFor="let storyId of data">
+  <app-story-item [storyId]="storyId"></app-story-item>
+</div>
