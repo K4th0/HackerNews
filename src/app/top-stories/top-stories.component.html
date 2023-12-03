@@ -1,31 +1,42 @@
 <div *ngFor="let story of filteredStories">
   <mat-card class="box">
-    <mat-card-title>{{ story.title }}</mat-card-title>
-    <br />
-    <div className="card_info">
-      <mat-card-subtitle>By: {{ story.by }}</mat-card-subtitle>
-      <mat-card-subtitle>Date: {{ story.time }}</mat-card-subtitle>
-      <mat-card-subtitle>Type: {{ story.type }}</mat-card-subtitle>
+    <div>
+      <a *ngIf="story.type === 'story'" [href]="story.url" target="_blank">
+        <mat-card-title class="story-title">{{ story.title }}</mat-card-title>
+      </a>
+      <ng-container *ngIf="story.type !== 'story'">
+        <mat-card-title class="story-title-sec">{{
+          story.title
+        }}</mat-card-title>
+      </ng-container>
+      <br />
+      <div class="fix-comments">
+        <div class="article-info-container">
+          <mat-card-subtitle class="sub-fix"
+            >By: {{ story.by }}</mat-card-subtitle
+          >
+          <mat-card-subtitle class="sub-fix"
+            >Date: {{ story.time | date : "medium" }}</mat-card-subtitle
+          >
+          <mat-card-subtitle class="sub-fix"
+            >Type: {{ story.type }}</mat-card-subtitle
+          >
+        </div>
+        <div class="button-comments">
+          <button mat-button color="accent">
+            <span class="button-text">Ver Comentarios</span>
+          </button>
+        </div>
+      </div>
     </div>
   </mat-card>
 </div>
 
-<div class="pagination_container">
-  <button
-    mat-raised-button
-    color="primary"
-    (click)="changePage(-1)"
-    [disabled]="currentPage === 1"
-  >
-    Anterior
-  </button>
-  <span class="pagination-page">Página {{ currentPage }}</span>
-  <button
-    mat-raised-button
-    color="primary"
-    (click)="changePage(1)"
-    [disabled]="currentPage * pageSize >= topStoriesIds.length"
-  >
-    Siguiente
-  </button>
-</div>
+<mat-paginator
+  class="pagination_container"
+  [pageSize]="pageSize"
+  [pageIndex]="currentPage - 1"
+  [length]="topStoriesIds.length"
+  (page)="changePage($event.pageIndex + 1)"
+>
+</mat-paginator>

@@ -56,8 +56,8 @@ export class TopStoriesComponent {
     }
   }
 
-  changePage(offset: number) {
-    this.currentPage += offset;
+  changePage(pageIndex: number) {
+    this.currentPage = pageIndex;
     this.filterStories();
   }
 

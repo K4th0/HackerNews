@@ -1,15 +1,57 @@
 
 .box {
+    background-color: rgb(173, 230, 233);
     margin: auto;
-    max-width: 60%;
+    max-width: 50%;
     margin-top: 10px;
     margin-bottom: 10px;
-  }
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.fix-comments {
+    display: flex;
+    flex-direction: row;
+}
+
+.button-text {
+    font-size: 18px;
+    color: brown;
+}
+
+.article-info-container {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+}
+
+.box:hover {
+    background-color: #add5d9;
+}
 
 .pagination_container {
+    font-size: 16px;
     margin-top: 30px;
-    margin-bottom: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.story-title {
+    color: inherit;
+    transition: color 0.3s;
+    font-size: 23px;
+}
+
+.story-title-sec {
+    font-size: 23px;
+}
+  
+.story-title:hover {
+    color: #228cfe;
+}
+
+.sub-fix {
+    font-size: 17px;
+    color:rgb(123, 75, 24);
 }
