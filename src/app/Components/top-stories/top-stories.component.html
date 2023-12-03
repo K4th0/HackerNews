@@ -22,13 +22,15 @@
             >Type: {{ story.type }}</mat-card-subtitle
           >
         </div>
-        <div class="button-comments">
-          <button mat-button color="accent" (click)="showComments(story.id)">
-            <span class="button-text"
-              >Ver Comentarios ({{ story.descendants }})</span
-            >
-          </button>
-        </div>
+        <ng-container *ngIf="story.type === 'story'">
+          <div class="button-comments">
+            <button mat-button color="accent" (click)="showComments(story.id)">
+              <span class="button-text"
+                >Ver Comentarios ({{ story.descendants }})</span
+              >
+            </button>
+          </div>
+        </ng-container>
       </div>
     </div>
   </mat-card>
@@ -40,5 +42,4 @@
   [pageIndex]="currentPage - 1"
   [length]="topStoriesIds.length"
   (page)="changePage($event.pageIndex + 1)"
->
-</mat-paginator>
+></mat-paginator>
