@@ -3,8 +3,9 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TopStoriesComponent } from './top-stories/top-stories.component';
-import { StoryItemComponent } from './story-item/story-item.component';
+import { TopStoriesComponent } from './Components/top-stories/top-stories.component';
+import { StoryItemComponent } from './Components/story-item/story-item.component';
+import { CommmentsComponent } from './Components/commments/commments.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -17,6 +18,7 @@ import { CommonModule } from '@angular/common';
     AppComponent,
     TopStoriesComponent,
     StoryItemComponent,
+    CommmentsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { TopStoriesService } from '../Services/top-stories.service';
-import { StoryItemService } from '../Services/story-item.service';
+import { TopStoriesService } from '../../Services/top-stories.service';
+import { StoryItemService } from '../../Services/story-item.service';
+import { CommentService } from '../../Services/comment.service';
 
 interface TopStoryModel {
   by: string;
@@ -27,7 +28,7 @@ export class TopStoriesComponent {
   pageSize: number = 50;
   currentPage: number = 1;
 
-  constructor(private topStoriesService: TopStoriesService, private storyItemService: StoryItemService) {}
+  constructor(private topStoriesService: TopStoriesService, private storyItemService: StoryItemService, private commentService: CommentService) {}
 
   ngOnInit(): void {
     this.fillData();
@@ -61,4 +62,11 @@ export class TopStoriesComponent {
     this.filterStories();
   }
 
+  showComments(articleId: number) {
+    console.log('Mostrar comentarios para el artículo con ID:', articleId);
+    this.commentService.getCommentsForArticle(articleId).subscribe(comments => {
+      //Comentarios hijos del artículo.
+      console.log('Comentarios del artículo:', comments);
+    });
+  }
 }
