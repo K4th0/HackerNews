@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { TopStoriesService } from '../../Services/top-stories.service';
 import { StoryItemService } from '../../Services/story-item.service';
 import { CommentService } from '../../Services/comment.service';
+import { Router } from '@angular/router';
 
 interface TopStoryModel {
   by: string;
@@ -28,7 +29,12 @@ export class TopStoriesComponent {
   pageSize: number = 50;
   currentPage: number = 1;
 
-  constructor(private topStoriesService: TopStoriesService, private storyItemService: StoryItemService, private commentService: CommentService) {}
+  constructor(
+    private topStoriesService: TopStoriesService,
+    private storyItemService: StoryItemService,
+    private commentService: CommentService,
+    private router: Router
+    ) {}
 
   ngOnInit(): void {
     this.fillData();
@@ -67,6 +73,9 @@ export class TopStoriesComponent {
     this.commentService.getCommentsForArticle(articleId).subscribe(comments => {
       //Comentarios hijos del artículo.
       console.log('Comentarios del artículo:', comments);
+
+      this.router.navigate(['/story', articleId]);
+
     });
   }
 }

@@ -24,7 +24,9 @@
         </div>
         <div class="button-comments">
           <button mat-button color="accent" (click)="showComments(story.id)">
-            <span class="button-text">Ver Comentarios</span>
+            <span class="button-text"
+              >Ver Comentarios ({{ story.descendants }})</span
+            >
           </button>
         </div>
       </div>
