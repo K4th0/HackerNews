@@ -1,14 +1,22 @@
-<div *ngFor="let comment of articleComments" class="comment-container">
-  <mat-card>
+<div *ngFor="let comment of articleComments">
+  <mat-card class="box">
     <mat-card-header>
-      <div mat-card-avatar class="comment-avatar"></div>
-      <mat-card-title>{{ comment.by }}</mat-card-title>
-      <mat-card-subtitle>{{
+      <div mat-card-avatar>
+        <mat-icon class="icon-fix">account_circle</mat-icon>
+      </div>
+      <mat-card-title class="text-fix">{{ comment.by }}</mat-card-title>
+      <mat-card-subtitle class="text-fix">{{
         comment.time | date : "medium"
       }}</mat-card-subtitle>
     </mat-card-header>
-    <mat-card-content>
-      {{ comment.text }}
-    </mat-card-content>
+
+    <mat-card-content
+      *ngIf="!comment.deleted; else deletedCommentContent"
+      [innerHTML]="comment.text"
+    ></mat-card-content>
+
+    <ng-template #deletedCommentContent>
+      <p>Este comentario ha sido eliminado.</p>
+    </ng-template>
   </mat-card>
 </div>

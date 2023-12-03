@@ -13,6 +13,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NotFoundComponent } from './Components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     TopStoriesComponent,
     StoryItemComponent,
     CommmentsComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,20 @@
+
+.box{
+    background-color: rgb(173, 233, 211);
+    margin: auto;
+    max-width: 75%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.icon-fix {
+    font-size: 50px;
+    width: 50px;
+    height: auto;
+}
+
+.text-fix {
+    margin-left: 10px;
+}

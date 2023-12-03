@@ -6,11 +6,12 @@ import { ActivatedRoute } from '@angular/router';
 export interface CommentModel {
   by: string;
   id: number;
-  kids: CommentModel[];
-  parent: number;
+  kids?: CommentModel[];
+  parent?: CommentModel;
   text: string;
   time: number;
-  type: string; 
+  type: string;
+  deleted?: boolean;
 }
 
 @Component({

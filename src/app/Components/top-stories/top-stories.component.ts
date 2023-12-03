@@ -71,11 +71,7 @@ export class TopStoriesComponent {
   showComments(articleId: number) {
     console.log('Mostrar comentarios para el artículo con ID:', articleId);
     this.commentService.getCommentsForArticle(articleId).subscribe(comments => {
-      //Comentarios hijos del artículo.
-      console.log('Comentarios del artículo:', comments);
-
       this.router.navigate(['/story', articleId]);
-
     });
   }
 }
